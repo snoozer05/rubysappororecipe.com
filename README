@@ -1,0 +1,12 @@
+* 準備
+
+/home/rsrecipe/.ssh/authorized_keys に自分の鍵を追加します。
+
+
+* deploy
+
+1. public 以下にwebサイトの内容を配置して、
+2. rake deploy:from_local でデプロイされます。
+
+gitリポジトリの内容ではなく、手元の内容がデプロイされますのでご注意ください。
+(未pushの変更がデプロイされるということです。だからfrom_local)
