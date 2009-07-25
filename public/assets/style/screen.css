@@ -25,12 +25,15 @@ a:hover {
 
 #header {
     border-top: solid 10px #fff;
-    width: 1172px;
     height: 150px;
     background-color: #ff2020;
     background-image:url('star.png');
     background-position: 70% 50%;
     background-repeat: no-repeat;
+}
+
+a#logo {
+    color: transparent;
 }
 
 .container {

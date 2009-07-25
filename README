@@ -1,3 +1,11 @@
+* 開発
+  $ sudo gem install nanoc rack mime-types
+  $ cd rubysappororecipe.com
+  $ nanoc aco (auto-compileの意味)
+  してから、http://localhost:3000/ にアクセスしましょう。
+
+
+
 * 準備
 
 /home/rsrecipe/.ssh/authorized_keys に自分の鍵を追加します。
