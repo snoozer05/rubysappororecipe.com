@@ -1,0 +1,10 @@
+# Built-in 
+layout: default
+filters_pre: []
+extension: html
+skip_output: false
+filters_post: []
+custom_path: 
+filename: index
+
+# Custom

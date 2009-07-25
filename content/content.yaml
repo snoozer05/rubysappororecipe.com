@@ -1,0 +1,7 @@
+# Built-in
+filters_pre:
+        - erb
+        - redcloth
+
+# Custom
+title: サポートページ
