@@ -36,6 +36,10 @@ a#logo {
     color: transparent;
 }
 
+img {
+    border: none;
+}
+
 .container {
     margin: 0px auto;
     width: 950px;
