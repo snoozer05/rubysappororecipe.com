@@ -40,6 +40,11 @@ img {
     border: none;
 }
 
+img#book-image {
+    float:left;
+    margin-right: 5px;
+}
+
 .container {
     margin: 0px auto;
     width: 950px;
@@ -121,6 +126,8 @@ img {
 }
 
 table {
+    margin: 0px;
+    padding: 0px;
     border: solid 1px #000;
     border-collapse: collapse;
 }
