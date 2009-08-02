@@ -1,0 +1,276 @@
+= Ruby逆引きレシピ　正誤表
+
+== レシピ015
+=== p.033
+誤
+  # プロンプトのタイトル文字列を"Ruby Recipe"にする
+正
+  # プロンプトのタイトル文字列を"Ruby Recipe Sample"にする
+
+
+== レシピ020
+=== p.044 最後のコード例
+誤
+  utf8_str = NKF::nkf('-Ew', str)
+正
+  utf8_str = NKF::nkf('-Ew', euc_jp_str)
+
+
+== レシピ024
+=== p.056
+誤
+  Fixnumクラスは31ビットの符号付き付き整数であり、表現可能な値の範囲は-1,073,741,824〜1,073,741,823です。
+正
+  Fixnumクラスは31ビットの符号付き付き整数であり、表現可能な値の範囲は-1,073,741,824〜1,073,741,823です。
+
+
+== レシピ029
+=== p.067 一番最後のコード例
+誤
+  require 'rubygems'
+  require 'measure'
+  require 'measure/length'
+正
+  require 'rubygems'
+  require 'measure/length'
+
+
+
+== レシピ067
+=== p.134 のコード例
+誤
+  templete
+正
+  template
+
+
+
+== レシピ068
+=== p.136 decoder_factory.rb の self.create の case のインデント
+誤
+  def self.create(file_type)
+  case file_type
+    when :mp3
+      MyMp3Decoder.new
+    when :aac
+      MyAacDecoder.new
+    when :atrac3
+正
+  def self.create(file_type)
+    case file_type
+    when :mp3
+      MyMp3Decoder.new
+    when :aac
+      MyAacDecoder.new
+    when :atrac3
+
+=== p.136 最後の使用例
+
+誤
+  decoder = decoder_factory.create(file_type)
+正
+  decoder = DecoderFactory.create(file_type)
+
+
+== レシピ070
+=== p.139
+誤
+  attr_reader :x, y
+正
+  attr_reader :x, :y
+
+
+
+== レシピ086
+=== p.173, p.174, p.175 のコード例
+誤
+  context[:port] => 389
+正
+  context[:port] = 389
+
+誤
+  context[:lang] => "us"
+正
+  context[:lang] = "us"
+
+
+== レシピ097
+=== p.197 コード例の一番最後
+
+誤
+  :encording => 'UTF-8'
+正
+  :encoding => 'UTF-8'
+
+=== p.199 コードの意図について
+
+誤
+  user = User.find(1)
+  user.login = "shimada"
+  user.save!
+
+正
+  user = User.find(1)
+  user.login = "mrkn"
+  user.save!
+
+
+
+== レシピ154
+=== p364
+誤
+  $ install libfreeimage-dev
+正
+  $ apt-get install libfreeimage-dev
+
+
+== レシピ176
+=== p.425 test_team.rb
+誤
+  require 'test/unit'
+正
+  require 'test/unit'
+  require 'person'
+  require 'team'
+
+
+== レシピ178
+=== p.431 test_team_with_stub.rb
+誤
+ require 'test/unit'
+ require 'rubygems'
+ require 'mocha'
+正
+ require 'test/unit'
+ require 'rubygems'
+ require 'mocha'
+
+ require 'person'
+ require 'team'
+
+=== p.432 test_team_with_mock.rb
+誤
+ require 'test/unit'
+ require 'rubygems'
+ require 'mocha'
+正
+ require 'test/unit'
+ require 'rubygems'
+ require 'mocha'
+
+ require 'person'
+ require 'team'
+
+
+== レシピ207
+=== p.496 最初の二つのコード例
+誤
+  task :byebye
+正
+  task :byebye do
+
+
+
+== レシピ218
+=== p.537 ,"nn" は不要
+誤
+  puts ISeq.compile("puts 'Hello,VM'").disasm,"nn"
+正
+  puts ISeq.compile("puts 'Hello,VM'").disasm
+
+
+== レシピ224
+=== p.551のdefine_lambda_alias.rbのコード例を2つの囲みに分離
+
+誤
+  #### define_lambda_alias.rb
+  # coding: UTF-8
+
+  methods = Kernel.private_instance_methods
+  module Kernel
+    alias λ lambda
+  end
+  sym = (Kernel.private_instance_methods - methods)[0]
+
+  sym.encoding #=> #<Encoding:UTF-8>
+
+  f = λ{ 1 + 2 }
+  f.call #=> 3
+
+  f = __send__('λ'.intern) { 1 + 2 }
+  f.call #=> 3
+
+  # 文字エンコーディングのみが異なる
+  f = __send__('λ'.force_encoding('EUC-JP').intern) { 1 + 2 } #=> undefined method `λ' for main:Object (NoMethodError)
+
+  # バイト列と文字エンコーディングの両方が異なる場合
+  f = __send__('λ'.encode('EUC-JP').intern) { 1 + 2 } #=> undefined method `??' for main:Object (NoMethodError)
+
+正
+  #### define_lambda_alias.rb
+  # coding: UTF-8
+  module Kernel
+    alias λ lambda
+  end
+
+以下は別枠に分離
+
+  # coding: UTF-8
+  methods = Kernel.private_instance_methods
+  require 'define_lambda_alias'
+
+  sym = (Kernel.private_instance_methods - methods)[0]
+
+  sym.encoding #=> #<Encoding:UTF-8>
+
+  f = λ{ 1 + 2 }
+  f.call #=> 3
+
+  f = __send__('λ'.intern) { 1 + 2 }
+  f.call #=> 3
+
+  # 文字エンコーディングのみが異なる
+  f = __send__('λ'.force_encoding('EUC-JP').intern) { 1 + 2 }
+      #=> undefined method `λ' for main:Object (NoMethodError)
+
+  # バイト列と文字エンコーディングの両方が異なる場合
+  f = __send__('λ'.encode('EUC-JP').intern) { 1 + 2 }
+      #=> undefined method `??' for main:Object (NoMethodError)
+
+
+=== p.551歳後のコードのコメント
+
+誤
+  #=> undefined method `λ' for main:Object (NoMethodError)
+正
+  => undefined method `??' for main:Object (NoMethodError)
+
+
+
+== レシピ226
+=== p.553
+
+誤
+  a = "\000\001\002\003"
+  a[2]   #=> 2
+  a[2] = 5
+正
+  a = "\000\001\002\003".force_encoding('ASCII-8BIT')
+  a[2]   #=> "\002"
+  a[2] = "\005"
+
+
+== レシピ227
+=== p.555 実行例
+
+誤
+  #=> 0
+  #=> 1
+  #=> ...
+  #=> 10
+正
+  #=> 0
+  #=> 1
+  #=> ...
+  #=> 9
+

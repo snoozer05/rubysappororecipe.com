@@ -1,4 +1,6 @@
 # Built-in
+filters_pre:
+  - erb
 
 # Custom
 title: 正誤表
