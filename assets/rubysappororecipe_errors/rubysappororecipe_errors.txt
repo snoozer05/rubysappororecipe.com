@@ -237,7 +237,7 @@
       #=> undefined method `??' for main:Object (NoMethodError)
 
 
-=== p.551歳後のコードのコメント
+=== p.551最後のコードのコメント
 
 誤
   #=> undefined method `λ' for main:Object (NoMethodError)
