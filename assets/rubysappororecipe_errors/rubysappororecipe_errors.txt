@@ -1,4 +1,4 @@
-= Ruby逆引きレシピ　正誤表
+= Ruby逆引きレシピ　正誤表 2009/08/07版
 
 == レシピ015
 === p.033
@@ -33,6 +33,13 @@
   require 'rubygems'
   require 'measure/length'
 
+
+== レシピ040
+=== p.089 最後から2行目
+誤
+  要素数が指定しなければ
+正
+  要素数を指定しなければ
 
 
 == レシピ067
@@ -251,7 +258,7 @@
 誤
   #=> undefined method `λ' for main:Object (NoMethodError)
 正
-  => undefined method `??' for main:Object (NoMethodError)
+  #=> undefined method `??' for main:Object (NoMethodError)
 
 
 
