@@ -45,6 +45,11 @@ img#book-image {
     margin-right: 5px;
 }
 
+img#sample-thumbnail {
+    border: solid 1px;
+    color: inherit;
+}
+
 .container {
     margin: 0px auto;
     width: 950px;
