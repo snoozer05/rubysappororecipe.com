@@ -129,6 +129,14 @@
   user.login = "mrkn"
   user.save!
 
+== レシピ161
+=== p.261 1番目のコード例
+
+誤
+  FancyIndexing => true)
+
+正
+  :FancyIndexing => true)
 
 == レシピ133
 === p.299
