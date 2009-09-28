@@ -86,6 +86,13 @@
   attr_reader :x, :y
 
 
+== レシピ082
+=== p.165 の最初のコード例
+誤
+  def point(*args)
+正
+  def point(args)
+
 
 == レシピ086
 === p.173, p.174, p.175 のコード例
