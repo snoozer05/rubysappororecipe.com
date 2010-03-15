@@ -1,4 +1,4 @@
-= Ruby逆引きレシピ　正誤表 2009/09/28版
+= Ruby逆引きレシピ　正誤表 2010/03/15版
 
 == レシピ015
 === p.033
@@ -135,6 +135,25 @@
   user = User.find(1)
   user.login = "mrkn"
   user.save!
+
+
+== レシピ098
+=== p.202 3つ目のコード例
+
+誤
+  Sequel('postgres://user:password@localhost/my_db')
+
+正
+  Sequel.connect('postgres://user:password@localhost/my_db')
+
+=== p.202 COLUMNのコード例
+
+誤
+  DB = Sequel('sqlite://zipcode.sqlite3')
+
+正
+  DB = Sequel.connect('sqlite://zipcode.sqlite3')
+
 
 == レシピ161
 === p.261 1番目のコード例
