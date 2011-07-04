@@ -1,3 +1,0 @@
-output_dir:  "public"
-data_source: "filesystem"
-router:      "no_dirs"
